@@ -115,22 +115,135 @@
 
 // console.log(point);
 
-const otherProps = {
-  r: 4,
-  color: 'red',
-}
+// const otherProps = {
+//   r: 4,
+//   color: 'red',
+// }
 
-const point = {
-  x: 100,
-  y: 180,
-  ...otherProps,
-};
+// const point = {
+//   x: 100,
+//   y: 180,
+//   ...otherProps,
+// };
 
-// console.log(point);
+// // console.log(point);
 
-const {x, r, ...others} = point;
-console.log(x);
-console.log(r);
-console.log(others);
+// const {x, r, ...others} = point;
+// console.log(x);
+// console.log(r);
+// console.log(others);
+
+// const point = {
+//   x: 100,
+//   y: 180,
+// };
+
+// // const keys = Object.keys(point);
+// // keys.forEach(key => {
+// //   console.log(`key: ${key} Value: ${point[key]}`);
+// // })
+
+// const points = [
+//   {x: 30, y: 20},
+//   {x: 10, y: 50},
+//   {x: 40, y: 60},
+// ];
+// console.log(points[1].y);
+
+
+// const str = 'hello';
+
+// console.log(str.length); //lengthは文字数
+
+// // str.substring(開始位置, 終了位置);
+
+// console.log(str.substring(2, 4));
+
+// console.log(str[1]); //特定の文字にアクセス
+
+// const d = [2019, 11, 14];
+
+// console.log(d.join('/')); //文字列を結合する。 2019/11/14
+
+// const t = '17:08:24';
+
+// // console.log(t.split(':')); 17, 08, 24　別々の配列になる。
+
+// const [hour, minute, second] = t.split(':'); // 文字列を置き換える。
+// console.log(hour); 17
+// console.log(minute); 08
+// console.log(second); 24
+
+// const scores = [10, 3, 9];
+
+// let sum = 0;
+
+// //scoresのそれぞれを取り出して、scoreとして、次の処理をする。
+// scores.forEach(score => {
+//   sum += score;
+// });
+
+// const avg = sum / scores.length;
+
+// console.log(sum);
+// console.log(avg);
+
+// console.log(Math.floor(avg)); //小数点以下きりすて　7
+// console.log(Math.ceil(avg)); //小数点以下切り上げ　8
+// console.log(Math.round(avg)); //四捨五入　7
+// console.log(avg.toFixed(3)); //指定した値まで数値を丸める 7.333
+
+// console.log(Math.random()); //乱数を生成　0以上１未満のランダムな数値を
+
+// console.log(Math.floor(Math.random() * 6) + 1); //1から6までのランダムな数字
+
+// const d = new Date();
+// console.log(d);
+
+// console.log(`${d.getMonth() + 1} 月 ${d.getDate()} 日`);
+
+// const d = new Date(2019, 10); //2019/11/01 00:00:00
+// d.setHours(10, 20, 30); 
+// d.setDate(d.getDate() + 3);
+// console.log(d);
+
+// alert('hello'); //お知らせをだす
+//confirm　確認するダイヤログ
+// const answer = confirm('削除しますか？');
+// if (answer) {
+//   console.log('削除しました');
+// } else {
+//   console.log('キャンセルしました');
+// }
+
+// let i = 0;
+
+// function showTime() {
+//   console.log(new Date());
+//   i++;
+//   if (i > 2) {
+//     clearInterval(intervalId);　　もしiが２より大きくなったら、showTimeの実行をやめる→clearInterval
+//   }
+// }
+
+// const intervalId = setInterval(showTime, 1000); //showTime()　としない setInterval　繰り返し処理
+//この繰り返し処理を、intervalIdという定数とする。
+
+// let i = 0;
+
+// function showTime() {
+//   console.log(new Date());
+//   const timeoutId = setTimeout(showTime, 1000);
+//   i++;
+//   if (i > 2) {
+//     clearTimeout(timeoutId);
+//   }
+// }
+
+// showTime();
+
+// setTimeout(showTime, 1000); //setTimeoutは一度だけ実行
+// 関数の中に入れることで、繰り返し実行することができる。
+
 
 }
