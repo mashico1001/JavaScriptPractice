@@ -245,5 +245,59 @@
 // setTimeout(showTime, 1000); //setTimeoutは一度だけ実行
 // 関数の中に入れることで、繰り返し実行することができる。
 
+//例外…開発者が意図しないエラーがおきること。そんなときにも処理を継続したい。
+// 例外がおきそうな個所を
+// try {
 
+// }　でかこむ。
+
+// const name = 5;
+
+// try {
+//   console.log(name.toUpperCase()); ←例外が置きそうな処理
+// } catch (e) {　←catchの後に続いて、例外が起きたときの処理
+//   console.log(e);
+// }
+
+// console.log('Finish!');
+
+//クラス
+// const posts = [
+//   {
+//     text: 'JavaScriptの勉強中…',
+//     likeCount: 0,
+//   },
+//   {
+//     text: 'プログラミング楽しい',
+//     likeCount: 0,
+//   },
+// ];
+
+// function show(post) {
+//   console.log(`${post.text} - ${post.likeCount}いいね`);
+// }
+// この処理をオブジェクトの中に入れることができる。
+
+// show(posts[0]);
+
+class Post {
+  constructor(text) {
+    this.text = text;
+    this.likeCount = 0;
+  }
+
+  show() {
+    console.log(`${this.text} - ${this.likeCount}いいね`);
+  }
+}
+
+
+
+const posts = [
+  new Post('JavaScriptの勉強中…'),
+  new Post('プログラミング楽しい'),
+];
+
+posts[0].show();
+posts[1].show();
 }
