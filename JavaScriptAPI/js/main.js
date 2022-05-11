@@ -40,22 +40,88 @@
   // observer.observe(target);
 
   //CSSでアニメーション
-  const target = document.querySelector('img');
+  // const target = document.querySelector('img');
 
-  function callback(entries) {
-    console.log(entries[0]);
+  // function callback(entries) {
+  //   console.log(entries[0]);
 
-    if (!entries[0].isIntersecting) {
-      return;
-    }
+  //   if (!entries[0].isIntersecting) {
+  //     return;
+  //   }
 
-    entries[0].target.classList.add('appear');
+  //   entries[0].target.classList.add('appear');
 
-    // if (entries[0].isIntersecting) {
-    //   entries[0].target.classList.add('appear');
-    // } else {
-    //   entries[0].target.classList.remove('appear');
-    // }
+  //   // if (entries[0].isIntersecting) {
+  //   //   entries[0].target.classList.add('appear');
+  //   // } else {
+  //   //   entries[0].target.classList.remove('appear');
+  //   // }
+  // }
+
+  // const options = {
+  //   threshold: 0.2,
+  // };
+
+  // const observer = new IntersectionObserver(callback, options);
+  // observer.observe(target);
+
+  //rootMarginを設定する。
+  // const target = document.querySelector('img');
+
+  // function callback(entries) {
+  //   console.log(entries[0]);
+
+  //   if (!entries[0].isIntersecting) {
+  //     return;
+  //   }
+
+  //   entries[0].target.classList.add('appear');
+
+  // }
+
+  // const options = {
+  //   threshold: 1,
+  //   rootMargin: '0px 0px -100px',
+  // };
+
+  // const observer = new IntersectionObserver(callback, options);
+  // observer.observe(target);
+
+  //一回交差したら、targetの監視を止める方法‥ブラウザに余計な負荷をかけない。
+  // const target = document.querySelector('img');
+
+  // function callback(entries, obs) {
+  //   console.log(entries[0]);
+
+  //   if (!entries[0].isIntersecting) {
+  //     return;
+  //   }
+
+  //   entries[0].target.classList.add('appear');
+  //   obs.unobserve(entries[0].target);
+  // }
+
+  // const options = {
+  //   threshold: 0.2,
+  // };
+
+  // const observer = new IntersectionObserver(callback, options);
+  // observer.observe(target);
+
+  //監視対象をふやす。
+  const targets = document.querySelectorAll('img');
+
+  function callback(entries, obs) {
+    console.log(entries); //監視開始時点では全ての要素、targetが交差したときは交差したtargetだけが入ってくる。
+
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) {
+        return;
+      }
+    
+      entry.target.classList.add('appear');
+      obs.unobserve(entry.target);
+    });
   }
 
   const options = {
@@ -63,7 +129,10 @@
   };
 
   const observer = new IntersectionObserver(callback, options);
-  observer.observe(target);
+
+  targets.forEach(target => {
+    observer.observe(target);
+  });
 
 
 }
